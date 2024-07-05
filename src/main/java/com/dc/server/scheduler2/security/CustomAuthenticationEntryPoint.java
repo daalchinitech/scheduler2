@@ -28,6 +28,7 @@ public final class CustomAuthenticationEntryPoint implements AuthenticationEntry
             .statusMessage("Invalid credentials")
             .build();
 
+
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.getOutputStream().println(JsonUtil.toJson(failureObj));
