@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" strict="true" name="JavaLog4j2XMLConfig">
+    <!-- Dev logging -->
+    <Properties>
+        <Property name="baseLogDir">${env:LOG_BASE_DIR}/scheduler</Property>
+    </Properties>
+    <Filter type="ThresholdFilter" level="debug"/>
+
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%highlight{%-5level} %d [%t] %logger{1.}: %msg %exception%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <File name="FileAppender" fileName="${baseLogDir}/scheduler2.log">
+            <PatternLayout>
+                <Pattern>%-5level %d [%t] %logger{1.}: %msg %exception%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.dc" level="debug" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+
+        <Logger name="com.zaxxer.hikari.pool" level="debug" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Logger name="org.hibernate.SQL" level="debug" additivity="false">
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
