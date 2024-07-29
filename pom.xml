@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>io.daalchini</groupId>
 	<artifactId>scheduler2</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>scheduler-service2</name>
 	<description>scheduler-service2</description>
 
@@ -229,7 +229,7 @@
 		<connection>scm:git:ssh://git@github.com/daalchinitech/scheduler2.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/daalchinitech/scheduler2.git</developerConnection>
 		<url>https://github.com/daalchinitech/scheduler2/tree/master/</url>
-		<tag>v0.0.1</tag>
+		<tag>v0.0.90</tag>
 	</scm>
 
 	<repositories>
