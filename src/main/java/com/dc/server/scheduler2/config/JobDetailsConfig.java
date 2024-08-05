@@ -80,4 +80,24 @@ public class JobDetailsConfig {
 
         return scheduler;
     }
+        @Bean
+    public Scheduler brandVmCountJobScheduler(SchedulerFactoryBean springBeanJobFactory)
+            throws SchedulerException {
+        final Scheduler scheduler = springBeanJobFactory.getScheduler();
+        final JobDetail job =
+                JobBuilder.newJob()
+                        .ofType(BrandVmCountJob.class)
+                        .withIdentity("BrandVmCountJob")
+                        .storeDurably()
+                        .build();
+        final CronTrigger trigger =
+                TriggerBuilder.newTrigger()
+                        .forJob(job)
+                        .withIdentity("BrandVmCountJob")
+                        .withSchedule(cronSchedule(BRAND_VM_COUNT))
+                        .build();
+        scheduler.scheduleJob(job, trigger);
+
+        return scheduler;
+    }
 }

@@ -16,4 +16,7 @@ public class SchedulerConstants {
     public static String CRON_MACHINE_WISE_SALE = schedulerProperties
             .getProperty("scheduler.cron.machine-wise-sale");
 
+    public static String BRAND_VM_COUNT= schedulerProperties
+            .getProperty("scheduler.cron.partner.auto-brandCategory");
+
 }
